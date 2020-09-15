@@ -3,7 +3,8 @@ import {
     Button, Container, Aside, Header,
     Main, Menu, Submenu, MenuItem,
     MenuItemGroup, Dropdown, DropdownItem,
-    DropdownMenu, Table, TableColumn
+    DropdownMenu, Table, TableColumn, Form,
+    FormItem, Input
  } from 'element-ui'
 
 Vue.use(Button)
@@ -20,3 +21,6 @@ Vue.use(DropdownItem)
 Vue.use(DropdownMenu)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
