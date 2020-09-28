@@ -4,7 +4,7 @@ import {
     Main, Menu, Submenu, MenuItem,
     MenuItemGroup, Dropdown, DropdownItem,
     DropdownMenu, Table, TableColumn, Form,
-    FormItem, Input
+    FormItem, Input, Message
  } from 'element-ui'
 
 Vue.use(Button)
@@ -24,3 +24,4 @@ Vue.use(TableColumn)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
+Vue.prototype.$message = Message

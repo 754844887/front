@@ -11,7 +11,7 @@
           <el-input type="password" prefix-icon="el-icon-key" placeholder="请输入密码" v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item class="login_btn">
-          <el-button type="primary" @click="login('loginRulForm')">登陆</el-button>
+          <el-button type="primary" @click="login('loginRulForm')">登录</el-button>
           <el-button type="info" @click="resetForm('loginRulForm')">重置</el-button>
         </el-form-item>
       </el-form>
@@ -26,8 +26,8 @@ export default {
   data(){
     return{
       form:{
-        email: '',
-        password: ''
+        email: '754844887@qq.com',
+        password: 'xjp20111225'
       },
       rules: {
           email: [
@@ -51,8 +51,6 @@ export default {
     login(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.form.email)
-            console.log(this.form.password)
             this.$axios({
               method: 'POST',
               url: 'token', 
@@ -62,13 +60,24 @@ export default {
                 password: this.form.password
               }
           }
-            ).then(function(response){
-              console.log(response);
-            }).catch(function(error){
+            ).then((response) => {
+              const res = response.data
+              console.log(res)
+              if (res.code === 200){
+                this.$message.success('登录成功！')
+                // 保存token
+                window.sessionStorage.setItem('token', res.data.token)
+                // 登录成功跳转到主页
+                this.$router.push('/home')
+              }else {
+                this.$message.error('登录失败！')
+              }
+            }).catch((error) => {
               console.log(error);
+              this.$message.error('用户名或密码错误！')
             });
           } else {
-            console.log('error submit!!');
+            console.log('登录预校验失败！');
             return false;
           }
         });
