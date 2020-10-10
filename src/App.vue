@@ -13,6 +13,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+body {
+  margin: 0;
+}
+// #app {
+//   display: flex;
+//   height: 100vh;
+//   flex-direction: column;
+// }
 </style>
