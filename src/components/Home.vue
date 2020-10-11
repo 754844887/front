@@ -8,6 +8,7 @@
       >
         <el-submenu index="1">
           <template slot="title">
+<<<<<<< HEAD
             <i class="el-icon-folder"></i>
             <span>资产管理</span>
           </template>
@@ -108,6 +109,90 @@
   </el-container>
 </template>
 
+=======
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <el-menu-item-group>
+            <template slot="title">分组一</template>
+            <el-menu-item index="1-1">选项1</el-menu-item>
+            <el-menu-item index="1-2">选项2</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group title="分组2">
+            <el-menu-item index="1-3">选项3</el-menu-item>
+          </el-menu-item-group>
+          <el-submenu index="1-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="1-4-1">选项1</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+      </el-menu>
+    </el-aside>
+    <el-container>
+      <el-header>
+         <div class="username">susan</div>
+        <el-dropdown trigger="click" @command="handleCommand">
+            <el-avatar
+              src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+              :size="35"
+            ></el-avatar>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="look">查看</el-dropdown-item>
+            <el-dropdown-item command="logout">注销</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-header>
+      <el-main>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+        <p>width: 100%;</p>
+      </el-main>
+    </el-container>
+  </el-container>
+</template>
+
+>>>>>>> 78537d834d1dea0280a74c5880d382fe04730cb1
 <script>
 export default {
   name: "Home",
@@ -131,11 +216,14 @@ export default {
       this.$refs.homePage.$el.style.height = clientHeight - 20 + "px";
     },
   },
+<<<<<<< HEAD
   computed: {
     getUser: function(){
       return window.sessionStorage.getItem('username')
     }
   },
+=======
+>>>>>>> 78537d834d1dea0280a74c5880d382fe04730cb1
   data() {
     return {
       clientHeight: "",
@@ -176,8 +264,11 @@ export default {
   color: #fff;
   margin-left: 10px;
 }
+<<<<<<< HEAD
 
 .el-menu {
   border-right: none;
 }
+=======
+>>>>>>> 78537d834d1dea0280a74c5880d382fe04730cb1
 </style>
