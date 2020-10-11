@@ -67,6 +67,8 @@ export default {
                 this.$message.success('登录成功！')
                 // 保存token
                 window.sessionStorage.setItem('token', res.data.token)
+                // 保存用户名
+                window.sessionStorage.setItem('username', res.data.username)
                 // 登录成功跳转到主页
                 this.$router.push('/home')
               }else {
