@@ -40,7 +40,7 @@
           ></el-input>
         </el-form-item>
         <el-form-item class="register_btn">
-          <el-button type="primary">注册</el-button>
+          <el-button type="primary" @click="register('RegisterForm')">注册</el-button>
           <el-button type="info" @click="resetForm('RegisterForm')"
             >重置</el-button
           >
@@ -81,18 +81,18 @@ export default {
 
     return {
       RegisterForm: {
-        name: "",
-        email: "",
-        password: "",
-        password2: "",
+        name: "liujianping",
+        email: "18825142361@163.com",
+        password: "xjp20111225",
+        password2: "xjp20111225",
       },
       rules: {
         name: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           {
             min: 3,
-            max: 10,
-            message: "长度在 3 到 10 个字符",
+            max: 20,
+            message: "长度在 3 到 20 个字符",
             trigger: "blur",
           },
         ],
@@ -110,6 +110,26 @@ export default {
     };
   },
   methods: {
+    register(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            this.$axios.post('/register', this.RegisterForm).then((response) => {
+              const res = response.data
+              if (res.code === 200){
+                this.$message.success(res.msg)
+                // 登录成功跳转到主页
+                this.$router.push('/login')
+              }else {
+                this.$message.error(res.msg)
+              }
+            }).catch((error) => {
+              this.$message.error(error.message)
+            });
+          } else {
+            return false;
+          }
+        });
+      },
     // 重置表单
     resetForm(formName) {
       this.$refs[formName].resetFields();

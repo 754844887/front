@@ -11,6 +11,7 @@
           <el-input type="password" prefix-icon="el-icon-key" placeholder="请输入密码" v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item class="login_btn">
+          <el-button type="primary" @click="register">新用户注册</el-button>
           <el-button type="primary" @click="login('loginRulForm')">登录</el-button>
           <el-button type="info" @click="resetForm('loginRulForm')">重置</el-button>
         </el-form-item>
@@ -47,6 +48,9 @@ export default {
       this.$refs[formName].resetFields();
     },
 
+    register(){
+      this.$router.push('/register')
+    },
     // 表单预验证
     login(formName) {
         this.$refs[formName].validate((valid) => {
@@ -64,19 +68,16 @@ export default {
               const res = response.data
               console.log(res)
               if (res.code === 200){
-                this.$message.success('登录成功！')
+                this.$message.success(res.msg)
                 // 保存token
                 window.sessionStorage.setItem('token', res.data.token)
                 // 保存用户名
                 window.sessionStorage.setItem('username', res.data.username)
                 // 登录成功跳转到主页
                 this.$router.push('/home')
-              }else {
-                this.$message.error('登录失败！')
               }
             }).catch((error) => {
-              console.log(error);
-              this.$message.error('用户名或密码错误！')
+              this.$message.error(error.response.data.msg)
             });
           } else {
             console.log('登录预校验失败！');
